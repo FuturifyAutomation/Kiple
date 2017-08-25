@@ -12,7 +12,8 @@ public class WalletLocators {
      * lbl --> label
      * lnk --> link
      * lst --> list
-     * chk --> checkbox
+     * chb --> checkbox
+     * spn --> spinner/combobox/dropdown
      */
 
     @FindBy(id = "com.mobi.kiple:id/text_logout")

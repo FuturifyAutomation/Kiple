@@ -12,7 +12,8 @@ public class EnterReferralCodeLocators {
      * lbl --> label
      * lnk --> link
      * lst --> list
-     * chk --> checkbox
+     * chb --> checkbox
+     * spn --> spinner/combobox/dropdown
      */
 
     @FindBy (xpath = ".//android.widget.TextView[@text=['Enter Referral code']")
