@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Kiple" parallel="tests" thread-count="1">
+    <listeners>
+        <listener class-name="supports.ExcelReport"/>
+    </listeners>
+    <!--<test name="HTC">-->
+        <!--<parameter name="platformVersion" value="4.4.2"/>-->
+        <!--<parameter name="deviceName" value="LC6B4B402499"/>-->
+        <!--<parameter name="uRL" value="http://127.0.0.1:4723/wd/hub"/>-->
+        <!--<parameter name="appPackage" value="com.mobi.wallet"/>-->
+        <!--<parameter name="appActivity" value="com.mobi.wallet.MainActivity"/>-->
+        <!--<parameter name="prefix" value="HTC-"/>-->
+        <!--<classes>-->
+            <!--<class name="modules.TestSignUp"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <!--<test name="Mobiistar">-->
+        <!--<parameter name="platformVersion" value="5.1"/>-->
+        <!--<parameter name="deviceName" value="M820XA2168253405"/>-->
+        <!--<parameter name="uRL" value="http://127.0.0.1:4723/wd/hub"/>-->
+        <!--<parameter name="appPackage" value="com.mobi.wallet"/>-->
+        <!--<parameter name="appActivity" value="com.mobi.wallet.MainActivity"/>-->
+        <!--<parameter name="email" value="Mobii-"/>-->
+        <!--&lt;!&ndash;<classes>&ndash;&gt;-->
+        <!--&lt;!&ndash;<class name="modules.TestSignUp"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;</classes>&ndash;&gt;-->
+        <!--<packages>-->
+            <!--<package name="modules"/>-->
+        <!--</packages>-->
+    <!--</test>-->
+
+    <test name="J2">
+        <parameter name="platformName" value="Android"/>
+        <parameter name="platformVersion" value="5.1.1"/>
+        <parameter name="deviceName" value="9201347300c483bd"/>
+        <parameter name="uRL" value="http://0.0.0.0:4723/wd/hub"/>
+        <parameter name="appPackage" value="com.mobi.kiple"/>
+        <parameter name="appActivity" value="com.mobi.wallet.MainActivity"/>
+        <parameter name="prefix" value="j2"/>
+        <classes>
+        <class name="modules.AccountManagement"/>
+        </classes>
+    </test>
+</suite>

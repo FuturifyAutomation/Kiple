@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Kiple" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="supports.ExcelReport"/>
+    </listeners>
+    <!--<test name="HTC">-->
+        <!--<parameter name="platformVersion" value="4.4.2"/>-->
+        <!--<parameter name="deviceName" value="LC6B4B402499"/>-->
+        <!--<parameter name="uRL" value="http://127.0.0.1:4723/wd/hub"/>-->
+        <!--<parameter name="appPackage" value="com.mobi.wallet"/>-->
+        <!--<parameter name="appActivity" value="com.mobi.wallet.MainActivity"/>-->
+        <!--<parameter name="prefix" value="HTC-"/>-->
+        <!--<classes>-->
+            <!--<class name="modules.TestSignUp"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <test name="Mobiistar">
+        <parameter name="platformVersion" value="5.1"/>
+        <parameter name="deviceName" value="M820XA2168253405"/>
+        <parameter name="uRL" value="http://127.0.0.1:1234/wd/hub"/>
+        <parameter name="appPackage" value="com.mobi.wallet"/>
+        <parameter name="appActivity" value="com.mobi.wallet.MainActivity"/>
+        <parameter name="prefix" value="mo-"/>
+        <classes>
+        <class name="modules.AccountManagement"/>
+        </classes>
+    </test>
+
+    <test name="J2">
+        <parameter name="platformVersion" value="5.1.1"/>
+        <parameter name="deviceName" value="9201347300c483bd"/>
+        <parameter name="uRL" value="http://127.0.0.2:5678/wd/hub"/>
+        <parameter name="appPackage" value="com.mobi.wallet"/>
+        <parameter name="appActivity" value="com.mobi.wallet.MainActivity"/>
+        <parameter name="prefix" value="j2-"/>
+        <classes>
+        <class name="modules.AccountManagement"/>
+        </classes>
+    </test>
+
+</suite>
