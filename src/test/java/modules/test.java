@@ -1,22 +1,26 @@
 package modules;
 
 import configurations.TestInitiation;
+import io.appium.java_client.android.Activity;
+import objects.AddContactLocators;
 import objects.SignUpLocators;
+import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import supports.AndroidPageFactory;
 
 public class test extends TestInitiation {
 
-    private SignUpLocators signUp;
+
+    private AddContactLocators AddContactScreen;
 
     @BeforeMethod
     public void setUp(){
-        signUp = AndroidPageFactory.initElements(androidDriver, SignUpLocators.class);
+        AddContactScreen = AndroidPageFactory.initElements(androidDriver, AddContactLocators.class);
     }
 
     @Test
     public void testcase() throws InterruptedException {
-        signUp.signUpAccount("test", "name", "qdo25@gmail.com", "q11111", "","123456", "123456");
+
     }
 }

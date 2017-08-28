@@ -1,9 +1,19 @@
 package objects;
 
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import supports.AndroidPageFactory;
 
 public class SetWalletIDLocators {
+
+    private AndroidDriver androidDriver;
+    private WalletLocators WalletScreen;
+
+    public SetWalletIDLocators(AndroidDriver androidDriver){
+        this.androidDriver = androidDriver;
+        WalletScreen = AndroidPageFactory.initElements(androidDriver, WalletLocators.class);
+    }
 
     /**
      * txt --> text box
@@ -31,7 +41,10 @@ public class SetWalletIDLocators {
     @FindBy(id = "com.mobi.kiple:id/btnSave")
     public WebElement btn_Save;
 
-    public void setWalletID(String walletID){
+    public void createWalletID(String walletID){
+//        Open WalletID Creator screen
+        WalletScreen.btn_TopUp.click();
+
 //        Enter wallet ID
         txt_WalletID.sendKeys(walletID);
 

@@ -26,17 +26,8 @@ public class AccountManagement extends TestInitiation {
     SoftAssert softAssert2 = new SoftAssert();
     SoftAssert softAssert3 = new SoftAssert();
 
-    private String prefix;
-    private String randomText = new SimpleDateFormat("MMddHHmmss").format(Calendar.getInstance().getTime());
-    private String email = prefix + "email" + randomText + "@gmail.com";
-    private String firstName = "test";
-    private String lastName = "name";
-    private String pin = "123456";
-    private String walletID = "q@111111";
-
     @BeforeMethod
-    @Parameters({"prefix"})
-    public void setUp(String prefix){
+    public void initializeTestCase(){
 
 //        Initialize locators
         LoginScreen = AndroidPageFactory.initElements(androidDriver, LogInLocators.class);
@@ -49,9 +40,6 @@ public class AccountManagement extends TestInitiation {
         EnterPhoneNumberScreen = AndroidPageFactory.initElements(androidDriver, EnterPhoneNumberLocators.class);
         EnterReferralCodeScreen = AndroidPageFactory.initElements(androidDriver, EnterReferralCodeLocators.class);
         VerifyMobileNumberScreen = AndroidPageFactory.initElements(androidDriver, VerifyMobileNumberLocators.class);
-
-//        Initialize variable "prefix" from Parameter of TestNG
-        this.prefix = prefix;
     }
 
     @Test
@@ -178,8 +166,14 @@ public class AccountManagement extends TestInitiation {
 //        Verify phone number
         SignUpScreen.verifyPhoneNumber(randomText, pin, pin);
 
-//        Set wallet ID
-        SetWalletIDScreen.setWalletID(walletID);
+//        Enter wallet ID
+        SetWalletIDScreen.txt_WalletID.sendKeys(walletID);
+
+//        Enter confirm walletID
+        SetWalletIDScreen.txt_ConfirmWalletID.sendKeys(walletID);
+
+//        Tap Save button
+        SetWalletIDScreen.btn_Save.click();
 
 //        Tap Top up again
         WalletScreen.btn_TopUp.click();

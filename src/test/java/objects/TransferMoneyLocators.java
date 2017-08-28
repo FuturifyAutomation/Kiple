@@ -14,6 +14,7 @@ public class TransferMoneyLocators {
      * lst --> list
      * chb --> checkbox
      * spn --> spinner/combobox/dropdown
+     * frm --> frame
      */
 
     @FindBy (id = "com.mobi.kiple:id/text_title")
@@ -24,6 +25,15 @@ public class TransferMoneyLocators {
 
     @FindBy(id = "com.mobi.kiple:id/tgbContactEmail")
     public WebElement btn_ContactEmail;
+
+    @FindBy(id = "com.mobi.kiple:id/tvContact")
+    public WebElement btn_Contact;
+
+    @FindBy(id = "com.mobi.kiple:id/tvEmail")
+    public WebElement btn_Email;
+
+    @FindBy(id = "com.mobi.kiple:id/touch_outside")
+    public WebElement frm_OutSide;
 
     @FindBy(id = "com.mobi.kiple:id/tgbScanQRCode")
     public WebElement btn_ScanQRCode;

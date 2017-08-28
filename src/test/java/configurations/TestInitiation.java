@@ -9,15 +9,25 @@ import org.testng.annotations.Parameters;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 public class TestInitiation {
 
     public AndroidDriver androidDriver;
+    public String prefix;
+
+    public String randomText = new SimpleDateFormat("MMddHHmmss").format(Calendar.getInstance().getTime());
+    public String email = prefix + "email" + randomText + "@gmail.com";
+    public String firstName = "test";
+    public String lastName = "name";
+    public String pin = "123456";
+    public String walletID = "q@111111";
 
     @BeforeTest
-    @Parameters({"platformName","platformVersion", "deviceName", "uRL", "appPackage", "appActivity"})
-    public void setUp(String platformName, String platformVersion, String deviceName, String uRL, String appPackage, String appActivity) throws MalformedURLException {
+    @Parameters({"platformName","platformVersion", "deviceName", "uRL", "prefix"})
+    public void initializeTestSuite(String platformName, String platformVersion, String deviceName, String uRL, String prefix) throws MalformedURLException {
 
         DesiredCapabilities caps = new DesiredCapabilities();
 
@@ -27,18 +37,21 @@ public class TestInitiation {
         caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
 
 //        App information
-        caps.setCapability("appPackage",appPackage);
-        caps.setCapability("appActivity",appActivity);
+        caps.setCapability("appPackage","com.mobi.kiple");
+        caps.setCapability("appActivity","com.mobi.wallet.MainActivity");
         caps.setCapability("resetKeyboard", true);
         caps.setCapability("unicodeKeyboard", true);
 
 //        Server inform
         androidDriver = new AndroidDriver(new URL(uRL), caps);
         androidDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
+//        Initialize variable "prefix" from Parameter of TestNG
+        this.prefix = prefix;
     }
 
     @AfterTest
-    public void tearDown(){
+    public void cleanTestSuite(){
         androidDriver.closeApp();
         androidDriver.quit();
     }
