@@ -1,9 +1,17 @@
 package objects;
 
+import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class PayBillsLocators {
+
+    private AndroidDriver androidDriver;
+
+    public PayBillsLocators(AndroidDriver androidDriver){
+        this.androidDriver = androidDriver;
+    }
 
     /**
      * txt --> text box
@@ -36,4 +44,12 @@ public class PayBillsLocators {
 
     @FindBy(id = "com.mobi.kiple:id/button_next")
     public WebElement btn_Next;
+
+    public void selectBills(String billName){
+//        Tap on Bills selection
+        spn_Bill.click();
+
+//        Select bill
+        androidDriver.findElement(By.xpath(".//android.widget.CheckedTextView[@text='" + billName + "']")).click();
+    }
 }

@@ -32,6 +32,9 @@ public class TransferMoneyLocators {
     @FindBy(id = "com.mobi.kiple:id/tvEmail")
     public WebElement btn_Email;
 
+    @FindBy(id = "com.mobi.kiple:id/email")
+    public WebElement lbl_ContactValue;
+
     @FindBy(id = "com.mobi.kiple:id/touch_outside")
     public WebElement frm_OutSide;
 

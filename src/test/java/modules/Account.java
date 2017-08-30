@@ -9,7 +9,7 @@ import supports.AndroidPageFactory;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class AccountManagement extends TestInitiation {
+public class Account extends TestInitiation {
 
     private LogInLocators LoginScreen;
     private TopUpLocators TopUpScreen;

@@ -24,7 +24,7 @@
         <parameter name="appActivity" value="com.mobi.wallet.MainActivity"/>
         <parameter name="prefix" value="mo-"/>
         <classes>
-        <class name="modules.AccountManagement"/>
+        <class name="modules.Account"/>
         </classes>
     </test>
 
@@ -36,7 +36,7 @@
         <parameter name="appActivity" value="com.mobi.wallet.MainActivity"/>
         <parameter name="prefix" value="j2-"/>
         <classes>
-        <class name="modules.AccountManagement"/>
+        <class name="modules.Account"/>
         </classes>
     </test>
 

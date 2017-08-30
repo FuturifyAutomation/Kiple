@@ -1,9 +1,17 @@
 package objects;
 
+import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class MobileReloadLocators {
+
+    private AndroidDriver androidDriver;
+
+    public MobileReloadLocators(AndroidDriver androidDriver){
+        this.androidDriver = androidDriver;
+    }
 
     /**
      * txt --> text box
@@ -48,4 +56,20 @@ public class MobileReloadLocators {
 
     @FindBy(id = "com.mobi.kiple:id/btnNext")
     public WebElement btn_Next;
+
+    public void selectMobileOperator(String operatorName){
+//        Tap on Operator selection
+        spn_MobileOperator.click();
+
+//        Select operator
+        androidDriver.findElement(By.xpath(".//android.widget.CheckedTextView[@text='" + operatorName + "']")).click();
+    }
+
+    public void selectPackage(String packageAmount){
+//        Tap on Operator selection
+        spn_Package.click();
+
+//        Select operator
+        androidDriver.findElement(By.xpath(".//android.widget.CheckedTextView[@text='" + packageAmount + "']")).click();
+    }
 }

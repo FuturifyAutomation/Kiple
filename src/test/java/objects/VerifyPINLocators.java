@@ -30,4 +30,12 @@ public class VerifyPINLocators {
 
     @FindBy (id = "com.mobi.kiple:id/btnCancel")
     public WebElement btn_Cancel;
+
+    public void verifyPIN(String pin){
+//        Enter PIN
+        txt_PIN.sendKeys(pin);
+
+//        Tap Proceed button
+        btn_Proceed.click();
+    }
 }
