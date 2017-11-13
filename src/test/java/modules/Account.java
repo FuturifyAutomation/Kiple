@@ -16,7 +16,7 @@ public class Account extends TestInitiation {
     private SignUpLocators SignUpScreen;
     private SetPINLocators SetPINScreen;
     private WalletLocators WalletScreen;
-    private EnterOTPLocators EnterOTPScreen;
+    private VerifyAccountLocators EnterOTPScreen;
     private SetWalletIDLocators SetWalletIDScreen;
     private EnterPhoneNumberLocators EnterPhoneNumberScreen;
     private EnterReferralCodeLocators EnterReferralCodeScreen;
@@ -35,7 +35,7 @@ public class Account extends TestInitiation {
         SignUpScreen = AndroidPageFactory.initElements(androidDriver, SignUpLocators.class);
         SetPINScreen = AndroidPageFactory.initElements(androidDriver, SetPINLocators.class);
         WalletScreen = AndroidPageFactory.initElements(androidDriver, WalletLocators.class);
-        EnterOTPScreen = AndroidPageFactory.initElements(androidDriver, EnterOTPLocators.class);
+        EnterOTPScreen = AndroidPageFactory.initElements(androidDriver, VerifyAccountLocators.class);
         SetWalletIDScreen = AndroidPageFactory.initElements(androidDriver, SetWalletIDLocators.class);
         EnterPhoneNumberScreen = AndroidPageFactory.initElements(androidDriver, EnterPhoneNumberLocators.class);
         EnterReferralCodeScreen = AndroidPageFactory.initElements(androidDriver, EnterReferralCodeLocators.class);

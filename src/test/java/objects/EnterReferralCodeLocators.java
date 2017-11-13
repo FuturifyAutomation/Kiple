@@ -13,11 +13,16 @@ public class EnterReferralCodeLocators {
      * lnk --> link
      * lst --> list
      * chb --> checkbox
-     * spn --> spinner/combobox/dropdown
+     * spn --> spinner/combo box/dropdown
+     * frm --> frame
+     * ttl --> title
      */
 
-    @FindBy (xpath = ".//android.widget.TextView[@text=['Enter Referral code']")
-    public WebElement lbl_Header;
+    @FindBy (id = "com.mobi.kiple:id/text_title")
+    public WebElement ttl_EnterReferralCode;
+
+    @FindBy(id = "com.mobi.kiple:id/button_back")
+    public WebElement btn_Back;
 
     @FindBy (id = "com.mobi.kiple:id/rbHave")
     public WebElement rad_HaveReferralCode;
@@ -33,7 +38,4 @@ public class EnterReferralCodeLocators {
 
     @FindBy (id = "com.mobi.kiple:id/btnSubmitReferral")
     public WebElement btn_Submit;
-
-    @FindBy (id = "com.mobi.kiple:id/btnSkip")
-    public WebElement btn_SkipUploadAvatar;
 }

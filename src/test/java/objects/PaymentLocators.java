@@ -13,11 +13,13 @@ public class PaymentLocators {
      * lnk --> link
      * lst --> list
      * chb --> checkbox
-     * spn --> spinner/combobox/dropdown
+     * spn --> spinner/combo box/dropdown
+     * frm --> frame
+     * ttl --> title
      */
 
     @FindBy (id = "com.mobi.kiple:id/text_title")
-    public WebElement lbl_Header;
+    public WebElement ttl_PayViaKiple;
 
     @FindBy(id = "com.mobi.kiple:id/button_back")
     public WebElement btn_Back;
@@ -26,13 +28,13 @@ public class PaymentLocators {
     public WebElement lbl_BalanceAmount;
 
     @FindBy(id = "com.mobi.kiple:id/tvAccount")
-    public WebElement lbl_BillAccountNumber;
+    public WebElement lbl_BillName;
 
     @FindBy(id = "com.mobi.kiple:id/cbKipleKash")
     public WebElement chb_KipleKash;
 
     @FindBy(id = "com.mobi.kiple:id/tvBalanceKipleKash")
-    public WebElement lbl_KipleKashBalance;
+    public WebElement lbl_CurrentKipleKashBalance;
 
     @FindBy(id = "com.mobi.kiple:id/tvPayKipleKash")
     public WebElement lbl_KipleKashPay;
@@ -41,13 +43,13 @@ public class PaymentLocators {
     public WebElement chb_Cash;
 
     @FindBy(id = "com.mobi.kiple:id/tvBalanceCash")
-    public WebElement lbl_CashBalance;
+    public WebElement lbl_CurrentCashBalance;
 
     @FindBy(id = "com.mobi.kiple:id/tvPayCash")
     public WebElement lbl_CashPay;
 
-    @FindBy(id = "com.mobi.kiple:id/btnCancel")
-    public WebElement btn_Cancel;
+    @FindBy(id = "com.mobi.kiple:id/btnTopUp")
+    public WebElement btn_TopUp;
 
     @FindBy(id = "com.mobi.kiple:id/btnNext")
     public WebElement btn_Next;

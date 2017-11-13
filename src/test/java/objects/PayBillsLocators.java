@@ -21,16 +21,18 @@ public class PayBillsLocators {
      * lnk --> link
      * lst --> list
      * chb --> checkbox
-     * spn --> spinner/combobox/dropdown
+     * spn --> spinner/combo box/dropdown
+     * frm --> frame
+     * ttl --> title
      */
 
     @FindBy (id = "com.mobi.kiple:id/text_title")
-    public WebElement lbl_Header;
+    public WebElement ttl_PayBills;
 
     @FindBy(id = "com.mobi.kiple:id/button_back")
     public WebElement btn_Back;
 
-    @FindBy(id = "com.mobi.kiple:id/spinnerTextCab")
+    @FindBy(id = "com.mobi.kiple:id/spnBill")
     public WebElement spn_Bill;
 
     @FindBy(id = "com.mobi.kiple:id/edtAmount")
@@ -39,11 +41,8 @@ public class PayBillsLocators {
     @FindBy(id = "com.mobi.kiple:id/edtAccount")
     public WebElement txt_AccountNumber;
 
-    @FindBy(id = "com.mobi.kiple:id/button_cancel")
-    public WebElement btn_Cancel;
-
-    @FindBy(id = "com.mobi.kiple:id/button_next")
-    public WebElement btn_Next;
+    @FindBy(id = "com.mobi.kiple:id/btnNext")
+    public WebElement btn_Proceed;
 
     public void selectBills(String billName){
 //        Tap on Bills selection

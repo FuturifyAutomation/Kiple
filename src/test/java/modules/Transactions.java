@@ -1,14 +1,10 @@
 package modules;
 
 import configurations.TestInitiation;
-import io.appium.java_client.android.Activity;
 import objects.*;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 import supports.AndroidPageFactory;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 public class Transactions extends TestInitiation {
 
@@ -17,7 +13,7 @@ public class Transactions extends TestInitiation {
     private WalletLocators WalletScreen;
     private SignUpLocators SignUpScreen;
     private PayBillsLocators PayBillsScreen;
-    private VerifyPINLocators VerifyPINScreen;
+    private EnterYourVerificationPINLocators VerifyPINScreen;
     private AddContactLocators AddContactScreen;
     private SetWalletIDLocators SetWalletScreen;
     private MobileReloadLocators MobileReloadScreen;
@@ -43,7 +39,7 @@ public class Transactions extends TestInitiation {
         WalletScreen = AndroidPageFactory.initElements(androidDriver, WalletLocators.class);
         SignUpScreen = AndroidPageFactory.initElements(androidDriver, SignUpLocators.class);
         PayBillsScreen = AndroidPageFactory.initElements(androidDriver, PayBillsLocators.class);
-        VerifyPINScreen = AndroidPageFactory.initElements(androidDriver, VerifyPINLocators.class);
+        VerifyPINScreen = AndroidPageFactory.initElements(androidDriver, EnterYourVerificationPINLocators.class);
         AddContactScreen = AndroidPageFactory.initElements(androidDriver, AddContactLocators.class);
         SetWalletScreen = AndroidPageFactory.initElements(androidDriver, SetWalletIDLocators.class);
         MobileReloadScreen = AndroidPageFactory.initElements(androidDriver, MobileReloadLocators.class);

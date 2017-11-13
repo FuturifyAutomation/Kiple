@@ -13,7 +13,9 @@ public class LogInLocators {
      * lnk --> link
      * lst --> list
      * chb --> checkbox
-     * spn --> spinner/combobox/dropdown
+     * spn --> spinner/combo box/dropdown
+     * frm --> frame
+     * ttl --> title
      */
 
     @FindBy (id = "com.mobi.kiple:id/edtEmail")
@@ -22,17 +24,23 @@ public class LogInLocators {
     @FindBy (id = "com.mobi.kiple:id/edtPassword")
     public WebElement txt_Password;
 
-    @FindBy (id = "com.mobi.kiple:id/btnLogIn")
-    public WebElement btn_Login;
+    @FindBy(id = "com.mobi.kiple:id/cbRemember")
+    public WebElement chb_RememberMe;
 
     @FindBy (id = "com.mobi.kiple:id/tvForgotPIN")
     public WebElement lbl_ForgotPassword;
 
-    @FindBy (id = "com.mobi.kiple:id/login_button")
-    public WebElement btn_LogInWithFacebook;
+    @FindBy (id = "com.mobi.kiple:id/btnLogIn")
+    public WebElement btn_Login;
+
+    @FindBy (id = "com.mobi.kiple:id/btnLogInFB")
+    public WebElement btn_Facebook;
+
+    @FindBy (id = "com.mobi.kiple:id/btnLogInGG")
+    public WebElement btn_Google;
 
     @FindBy (id = "com.mobi.kiple:id/tvSignUp")
-    public  WebElement lbl_SignUpWithEmail;
+    public  WebElement lbl_SignUp;
 
     public void logIn(String email, String password){
         //Input email

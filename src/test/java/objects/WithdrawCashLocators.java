@@ -22,10 +22,11 @@ public class WithdrawCashLocators {
      * lst --> list
      * chb --> checkbox
      * spn --> spinner/combobox/dropdown
+     * ttl --> title
      */
 
     @FindBy (id = "com.mobi.kiple:id/text_title")
-    public WebElement lbl_Header;
+    public WebElement ttl_WithdrawCash;
 
     @FindBy(id = "com.mobi.kiple:id/button_back")
     public WebElement btn_Back;
@@ -33,27 +34,24 @@ public class WithdrawCashLocators {
     @FindBy(id = "com.mobi.kiple:id/edtRecipientName")
     public WebElement txt_RecipientName;
 
+    @FindBy(id = "com.mobi.kiple:id/edtNricNumber")
+    public WebElement txt_NRICPassportNumber;
+
     @FindBy(id = "com.mobi.kiple:id/edtAmount")
     public WebElement txt_Amount;
 
-    @FindBy(id = "com.mobi.kiple:id/spinnerTextCab")
-    public WebElement spn_Banks;
+    @FindBy(id = "com.mobi.kiple:id/spnBanks")
+    public WebElement spn_SelectYourBank;
 
     @FindBy(id = "com.mobi.kiple:id/edtBankNumber")
     public WebElement txt_BankAccountNumber;
 
-    @FindBy(id = "com.mobi.kiple:id/edtNricNumber")
-    public WebElement txt_NRICNumber;
-
-    @FindBy(id = "com.mobi.kiple:id/btnCancel")
-    public WebElement btn_Cancel;
-
     @FindBy(id = "com.mobi.kiple:id/btnProcess")
-    public WebElement btn_Next;
+    public WebElement btn_Proceed;
 
     public void selectBank(String bankName){
 //        Tap on Bank selection
-        spn_Banks.click();
+        spn_SelectYourBank.click();
 
 //        Select bank name
         androidDriver.findElement(By.xpath(".//android.widget.CheckedTextView[@text='" + bankName + "']")).click();

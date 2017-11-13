@@ -24,8 +24,22 @@ public class AddContactLocators {
      * lnk --> link
      * lst --> list
      * chb --> checkbox
-     * spn --> spinner/combobox/dropdown
+     * spn --> spinner/combo box/dropdown
+     * frm --> frame
+     * ttl --> title
      */
+
+    @FindBy(id = "android:id/alertTitle")
+    public WebElement ttl_SaveContactTo;
+
+    @FindBy(className = "android.widget.ImageButton")
+    public WebElement btn_Back;
+
+    @FindBy(xpath = ".//android.widget.TextView[@text='Contacts']")
+    public WebElement ttl_Contacts;
+
+    @FindBy(xpath = ".//android.widget.TextView[@text='Select contact']")
+    public WebElement lbl_SelectContact;
 
     @FindBy(id = "com.android.contacts:id/cliv_name_textview")
     public WebElement lbl_ContactItem;

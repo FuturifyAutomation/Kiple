@@ -12,19 +12,15 @@ public class SignUpLocators{
 
     private LogInLocators LoginScreen;
     private SetPINLocators SetPINScreen;
-    private EnterOTPLocators EnterOTPScreen;
-    private EnterPhoneNumberLocators EnterPhoneNumberScreen;
+    private VerifyAccountLocators EnterOTPScreen;
     private EnterReferralCodeLocators EnterReferralCodeScreen;
-    private VerifyMobileNumberLocators VerifyMobileNumberScreen;
 
     public SignUpLocators(AndroidDriver androidDriver){
         this.androidDriver = androidDriver;
         LoginScreen = AndroidPageFactory.initElements(androidDriver, LogInLocators.class);
         SetPINScreen = AndroidPageFactory.initElements(androidDriver, SetPINLocators.class);
-        EnterOTPScreen = AndroidPageFactory.initElements(androidDriver, EnterOTPLocators.class);
-        EnterPhoneNumberScreen = AndroidPageFactory.initElements(androidDriver, EnterPhoneNumberLocators.class);
+        EnterOTPScreen = AndroidPageFactory.initElements(androidDriver, VerifyAccountLocators.class);
         EnterReferralCodeScreen = AndroidPageFactory.initElements(androidDriver, EnterReferralCodeLocators.class);
-        VerifyMobileNumberScreen = AndroidPageFactory.initElements(androidDriver, VerifyMobileNumberLocators.class);
     }
 
     /**
@@ -35,7 +31,9 @@ public class SignUpLocators{
      * lnk --> link
      * lst --> list
      * chb --> checkbox
-     * spn --> spinner/combobox/dropdown
+     * spn --> spinner/combo box/dropdown
+     * frm --> frame
+     * ttl --> title
      */
 
     @FindBy(id = "com.mobi.kiple:id/imbBack")

@@ -13,11 +13,13 @@ public class TopUpLocators {
      * lnk --> link
      * lst --> list
      * chb --> checkbox
-     * spn --> spinner/combobox/dropdown
+     * spn --> spinner/combo box/dropdown
+     * frm --> frame
+     * ttl --> title
      */
 
     @FindBy (id = "com.mobi.kiple:id/text_title")
-    public WebElement lbl_Header;
+    public WebElement ttl_TopUp;
 
     @FindBy(id = "com.mobi.kiple:id/button_back")
     public WebElement btn_Back;
@@ -34,15 +36,12 @@ public class TopUpLocators {
     @FindBy(id = "com.mobi.kiple:id/button_option_4")
     public WebElement btn_200RM;
 
-    @FindBy(id = "com.mobi.kiple:id/button_online_banking")
-    public WebElement btn_OnlineBanking;
+    @FindBy(id = "com.mobi.kiple:id/edtAmount")
+    public WebElement txt_AddManualAmount;
 
-    @FindBy(id = "com.mobi.kiple:id/button_credit")
-    public WebElement btn_CreditDebitCard;
+    @FindBy(id = "com.mobi.kiple:id/btn_pay_online")
+    public WebElement btn_PayByOnlineBanking;
 
-    @FindBy(id = "com.mobi.kiple:id/button_cancel")
-    public WebElement btn_Cancel;
-
-    @FindBy(id = "com.mobi.kiple:id/button_next")
-    public WebElement btn_Next;
+    @FindBy(id = "com.mobi.kiple:id/btn_pay_credit")
+    public WebElement btn_PayByCreditDebitCard;
 }
