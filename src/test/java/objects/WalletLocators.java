@@ -18,9 +18,6 @@ public class WalletLocators {
      * icn --> icon
      */
 
-    @FindBy(id = "com.mobi.kiple:id/text_kiple")
-    public WebElement ttl_Wallet;
-
     @FindBy(id = "com.mobi.kiple:id/button_bell")
     public WebElement icn_Notifications;
 
@@ -30,45 +27,45 @@ public class WalletLocators {
     @FindBy(id = "com.mobi.kiple:id/text_notification_count")
     public WebElement lbl_NotificationCount;
 
-    @FindBy(id = "com.mobi.kiple:id/text_balance")
+    @FindBy(id = "com.mobiduu.kiple:id/text_balance")
     public WebElement lbl_AvailableBalance;
 
-    @FindBy(id = "com.mobi.kiple:id/button_topup")
+    @FindBy(id = "com.mobiduu.kiple:id/button_topup")
     public WebElement btn_TopUp;
 
-    @FindBy(xpath = ".//android.widget.TextView[@text='OUT FOR BREAKFAST']")
+    @FindBy(xpath = ".//android.widget.TextView[@text='Out For Breakfast']")
     public WebElement lbl_OutForBreakfast;
 
-    @FindBy(xpath = ".//android.widget.TextView[@text='BEST DEAL']")
+    @FindBy(xpath = ".//android.widget.TextView[@text='Best Deal']")
     public WebElement lbl_BestDeal;
 
-    @FindBy(id = "com.mobi.kiple:id/button_paybill")
+    @FindBy(id = "com.mobiduu.kiple:id/button_paybill")
     public WebElement btn_PayBills;
 
-    @FindBy(id = "com.mobi.kiple:id/button_mobile_reload")
+    @FindBy(id = "com.mobiduu.kiple:id/button_mobile_reload")
     public WebElement btn_MobileReload;
 
-    @FindBy(id = "com.mobi.kiple:id/button_transfer_money")
+    @FindBy(id = "com.mobiduu.kiple:id/button_transfer_money")
     public WebElement btn_TransferMoney;
 
-    @FindBy(id = "com.mobi.kiple:id/button_withdrawal")
-    public WebElement btn_Withdrawal;
+    @FindBy(id = "com.mobiduu.kiple:id/button_rewards")
+    public WebElement btn_Collections;
 
-    @FindBy(id = "com.mobi.kiple:id/button_transaction_history")
-    public WebElement btn_TransactionHistory;
+    @FindBy(id = "com.mobiduu.kiple:id/button_transaction_history")
+    public WebElement btn_History;
 
-    @FindBy(id = "com.mobi.kiple:id/button_wallet")
+    @FindBy(id = "com.mobiduu.kiple:id/ll_wallet")
     public WebElement btn_Wallet;
 
-    @FindBy(id = "com.mobi.kiple:id/button_offer")
+    @FindBy(id = "com.mobiduu.kiple:id/ll_offer")
     public WebElement btn_Offers;
 
-    @FindBy(id = "com.mobi.kiple:id/btn_scan")
+    @FindBy(id = "com.mobiduu.kiple:id/ll_scan")
     public WebElement btn_Scan;
 
-    @FindBy(id = "com.mobi.kiple:id/button_pay")
+    @FindBy(id = "com.mobiduu.kiple:id/ll_pay")
     public WebElement btn_Pay;
 
-    @FindBy(id = "com.mobi.kiple:id/button_profile")
+    @FindBy(id = "com.mobiduu.kiple:id/ll_profile")
     public WebElement btn_Profile;
 }

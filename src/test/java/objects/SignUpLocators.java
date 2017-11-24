@@ -1,7 +1,6 @@
 package objects;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidKeyCode;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import supports.AndroidPageFactory;
@@ -11,16 +10,16 @@ public class SignUpLocators{
     private AndroidDriver androidDriver;
 
     private LogInLocators LoginScreen;
-    private SetPINLocators SetPINScreen;
-    private VerifyAccountLocators EnterOTPScreen;
+    private EnterPinLocators SetPINScreen;
     private EnterReferralCodeLocators EnterReferralCodeScreen;
+    private VerifyEmailOrPhoneNumberLocators VerifyEmailOrPhoneNumberScreen;
 
     public SignUpLocators(AndroidDriver androidDriver){
         this.androidDriver = androidDriver;
         LoginScreen = AndroidPageFactory.initElements(androidDriver, LogInLocators.class);
-        SetPINScreen = AndroidPageFactory.initElements(androidDriver, SetPINLocators.class);
-        EnterOTPScreen = AndroidPageFactory.initElements(androidDriver, VerifyAccountLocators.class);
+        SetPINScreen = AndroidPageFactory.initElements(androidDriver, EnterPinLocators.class);
         EnterReferralCodeScreen = AndroidPageFactory.initElements(androidDriver, EnterReferralCodeLocators.class);
+        VerifyEmailOrPhoneNumberScreen = AndroidPageFactory.initElements(androidDriver, VerifyEmailOrPhoneNumberLocators.class);
     }
 
     /**
@@ -39,51 +38,36 @@ public class SignUpLocators{
     @FindBy(id = "com.mobi.kiple:id/imbBack")
     public WebElement btn_Back;
 
-    @FindBy (id = "com.mobi.kiple:id/edtFirstName")
-    public WebElement txt_FirstName;
+    @FindBy (id = "com.mobiduu.kiple:id/edtFullName")
+    public WebElement txt_FullName;
 
-    @FindBy (id = "com.mobi.kiple:id/edtLastName")
-    public WebElement txt_LastName;
+    @FindBy (id = "com.mobiduu.kiple:id/edtEmail")
+    public WebElement txt_Username;
 
-    @FindBy (id = "com.mobi.kiple:id/edtEmail")
-    public WebElement txt_Email;
+    @FindBy (id = "com.mobiduu.kiple:id/tvCountry")
+    public WebElement spn_Country;
 
-    @FindBy (id = "com.mobi.kiple:id/edtConfirmEmail")
-    public WebElement txt_ConfirmEmail;
-
-    @FindBy (id = "com.mobi.kiple:id/edtPassword")
+    @FindBy (id = "com.mobiduu.kiple:id/edtPassword")
     public WebElement txt_Password;
 
-    @FindBy (id = "com.mobi.kiple:id/edtConfirmPassword")
+    @FindBy (id = "com.mobiduu.kiple:id/edtConfirmPassword")
     public WebElement txt_ConfirmPassword;
 
-    @FindBy (id = "com.mobi.kiple:id/tvDateOfBirth")
-    public WebElement btn_DateOfBirth;
+    @FindBy (id = "com.mobiduu.kiple:id/tvCondition")
+    public WebElement lnk_TermConditions;
 
-    @FindBy (id = "com.mobi.kiple:id/rdbMale")
-    public WebElement rad_Male;
+    @FindBy (id = "com.mobiduu.kiple:id/btnSubmit")
+    public WebElement btn_SignUp;
 
-    @FindBy (id = "com.mobi.kiple:id/rdbFemale")
-    public WebElement rad_Female;
+    public void signUpAccount(String fullName, String username, String password, String otp, String referralCode){
+//        Go to Sign Up screen
+        LoginScreen.lbl_SignUp.click();
 
-    @FindBy (id = "com.mobi.kiple:id/cbTerm")
-    public WebElement chk_Term;
+//        Enter full name
+        txt_FullName.sendKeys(fullName);
 
-    @FindBy (id = "com.mobi.kiple:id/btnSubmit")
-    public WebElement btn_Submit;
-
-    public void enterAccountInformation(String firstName, String lastName, String email, String password){
-//        Enter first name
-        txt_FirstName.sendKeys(firstName);
-
-//        Enter last name
-        txt_LastName.sendKeys(lastName);
-
-//        Enter email
-        txt_Email.sendKeys(email);
-
-//        Enter confirm email
-        txt_ConfirmEmail.sendKeys(email);
+//        Enter username
+        txt_Username.sendKeys(username);
 
 //        Enter password
         txt_Password.sendKeys(password);
@@ -91,68 +75,16 @@ public class SignUpLocators{
 //        Enter confirm password
         txt_ConfirmPassword.sendKeys(password);
 
-//        Check on Term and Condition checkbox
-        chk_Term.click();
-
-//        Tap submit
-        btn_Submit.click();
-    }
-
-    public void verifyPhoneNumber(String phoneNumber, String otp, String pin){
-//        Enter phone number
-        EnterPhoneNumberScreen.txt_PhoneNumber.sendKeys(phoneNumber);
-
-//        Tap Next button
-        EnterPhoneNumberScreen.btn_Next.click();
+//        Tap sign up
+        btn_SignUp.click();
 
 //        Enter OTP
-        EnterOTPScreen.txt_OTP.sendKeys(otp);
+        VerifyEmailOrPhoneNumberScreen.txt_OTP.sendKeys(otp);
 
-//        Tap Next button
-        EnterOTPScreen.btn_Next.click();
+//        Enter referral code
+        EnterReferralCodeScreen.txt_ReferralCode.sendKeys(referralCode);
 
-//        Set PIN
-        SetPINScreen.txt_PIN.sendKeys(pin);
-
-//        Enter confirm PIN
-        SetPINScreen.txt_ConfirmPIN.sendKeys(pin);
-
-//        Tap Save button
-        SetPINScreen.btn_Save.click();
-    }
-
-    public void signUpAccount(String firstName, String lastName, String email, String password, String phoneNumber, String otp, String pin) throws InterruptedException {
-//        Go to Sign Up screen
-        LoginScreen.lbl_SignUpWithEmail.click();
-
-//        Enter account information
-        enterAccountInformation(firstName, lastName, email, password);
-
-        if (phoneNumber == ""){
-
-//            Go back Login screen
-            Thread.sleep(2000);
-            androidDriver.pressKeyCode(AndroidKeyCode.BACK);
-
-//            Login
-            LoginScreen.logIn(email, password);
-
-        }else {
-
-//           Tap Take Me There button
-            VerifyMobileNumberScreen.btn_TakeMeThere.click();
-
-//           Verify Mobile Number
-            verifyPhoneNumber(phoneNumber, otp, pin);
-
-//           Skip referral code
-            EnterReferralCodeScreen.rad_NotHaveReferralCode.click();
-
-//           Tap Submit button
-            EnterReferralCodeScreen.btn_Submit.click();
-
-//           Skip upload photo
-            EnterReferralCodeScreen.btn_SkipUploadAvatar.click();
-        }
+//        Tap Submit
+        EnterReferralCodeScreen.btn_Submit.click();
     }
 }

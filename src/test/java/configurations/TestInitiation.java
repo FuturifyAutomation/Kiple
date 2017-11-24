@@ -18,12 +18,13 @@ public class TestInitiation {
     public AndroidDriver androidDriver;
     public String prefix;
 
-    public String randomText = new SimpleDateFormat("MMddHHmmss").format(Calendar.getInstance().getTime());
-    public String email = prefix + "email" + randomText + "@gmail.com";
-    public String firstName = "test";
-    public String lastName = "name";
-    public String pin = "123456";
-    public String walletID = "q@111111";
+    public String randomDigit = new SimpleDateFormat("MMddHHmm").format(Calendar.getInstance().getTime());
+    public String email = prefix + "email" + randomDigit + "@gmail.com";
+    public String phoneNumber = "601" + randomDigit;
+    public String password = "q1111111";
+    public String fullName = "test name";
+    public String otp = "123456";
+    public String pin = "111111";
 
     @BeforeTest
     @Parameters({"platformName","platformVersion", "deviceName", "uRL", "prefix"})

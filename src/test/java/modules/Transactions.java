@@ -13,12 +13,13 @@ public class Transactions extends TestInitiation {
     private WalletLocators WalletScreen;
     private SignUpLocators SignUpScreen;
     private PayBillsLocators PayBillsScreen;
-    private EnterYourVerificationPINLocators VerifyPINScreen;
+    private EnterPinLocators EnterPinScreen;
     private AddContactLocators AddContactScreen;
-    private SetWalletIDLocators SetWalletScreen;
     private MobileReloadLocators MobileReloadScreen;
     private WithdrawCashLocators WithdrawCashScreen;
     private TransferMoneyLocators TransferMoneyScreen;
+    private CreateWalletIdLocators CreateWalletIdScreen;
+    private PaymentReceiptLocators PaymentReceiptScreen;
     private SecurePaymentPageLocators SecurePaymentPageScreen;
 
     SoftAssert softAssert1 = new SoftAssert();
@@ -39,12 +40,13 @@ public class Transactions extends TestInitiation {
         WalletScreen = AndroidPageFactory.initElements(androidDriver, WalletLocators.class);
         SignUpScreen = AndroidPageFactory.initElements(androidDriver, SignUpLocators.class);
         PayBillsScreen = AndroidPageFactory.initElements(androidDriver, PayBillsLocators.class);
-        VerifyPINScreen = AndroidPageFactory.initElements(androidDriver, EnterYourVerificationPINLocators.class);
+        EnterPinScreen = AndroidPageFactory.initElements(androidDriver, EnterPinLocators.class);
         AddContactScreen = AndroidPageFactory.initElements(androidDriver, AddContactLocators.class);
-        SetWalletScreen = AndroidPageFactory.initElements(androidDriver, SetWalletIDLocators.class);
         MobileReloadScreen = AndroidPageFactory.initElements(androidDriver, MobileReloadLocators.class);
         WithdrawCashScreen = AndroidPageFactory.initElements(androidDriver, WithdrawCashLocators.class);
         TransferMoneyScreen = AndroidPageFactory.initElements(androidDriver, TransferMoneyLocators.class);
+        CreateWalletIdScreen = AndroidPageFactory.initElements(androidDriver, CreateWalletIdLocators.class);
+        PaymentReceiptScreen = AndroidPageFactory.initElements(androidDriver, PaymentReceiptLocators.class);
         SecurePaymentPageScreen = AndroidPageFactory.initElements(androidDriver, SecurePaymentPageLocators.class);
 
 /*//        Sign up first account
@@ -71,7 +73,7 @@ public class Transactions extends TestInitiation {
         LoginScreen.logIn("qdo1@gmail.com", "q11111");
     }
 
-    @Test
+    /*@Test
     public void VerifyToppingUpBalanceByUsingOnlineBanking() throws InterruptedException {
 
 //        Tap on Top Up button
@@ -111,64 +113,51 @@ public class Transactions extends TestInitiation {
         softAssert1.assertTrue(WalletScreen.lbl_YourBalance.isDisplayed());
         WalletScreen.lbl_Logout.click();
         softAssert1.assertAll();
-    }
+    }*/
 
     @Test(priority = 1)
     public void VerifyingTransferringMoney(){
 
+        String receiver = "sit20@mailinator.com";
+        String amount = "1.10";
+
 //        Tap on Transfer money option
-        WalletScreen.btn_MoneyTransfer.click();
+        WalletScreen.btn_TransferMoney.click();
 
 //        Check Point: Money Transfer screen should appear
-        softAssert2.assertEquals(TransferMoneyScreen.lbl_Header.getText(), "Transfer Money");
+        softAssert2.assertEquals(TransferMoneyScreen.ttl_TransferMoney.getText(), "Transfer Money");
 
-//        Tap on Contact/Email option
-        TransferMoneyScreen.btn_ContactEmail.click();
-
-//        Check Point: "Contacts" and "Email" should appear
-        softAssert2.assertTrue(TransferMoneyScreen.btn_Contact.isDisplayed());
-        softAssert2.assertTrue(TransferMoneyScreen.btn_Email.isDisplayed());
-
-//        Tap on Contact option
-        TransferMoneyScreen.btn_Contact.click();
-
-//        Check Point: The list contact within phone number should appear
-        softAssert2.assertEquals(TransferMoneyScreen.lbl_ContactValue.getText(), firstPhoneNumber);
-
-//        Select contact
-        TransferMoneyScreen.lbl_ContactValue.click();
-
-//        Check Point: The phone number of selected contact should be displayed in Email/Phone Number field
-        softAssert2.assertEquals(TransferMoneyScreen.txt_EmailMobileNumberReferralCode.getText(), firstPhoneNumber);
-
-//        Tap on Contact/Email option again
-        TransferMoneyScreen.btn_ContactEmail.click();
-
-//        Tap on Email option
-        TransferMoneyScreen.btn_Email.click();
-
-//        Check Point: The list contact within email should appear
-        softAssert2.assertEquals(TransferMoneyScreen.txt_EmailMobileNumberReferralCode.getText(), firstEmail);
-
-//        Select contact
-        TransferMoneyScreen.lbl_ContactValue.click();
-
-//        Check Point: The email of selected contact should be displayed in Email/Phone Number field
-        softAssert2.assertEquals(TransferMoneyScreen.txt_EmailMobileNumberReferralCode.getText(), firstEmail);
+//        Enter receiver
+        TransferMoneyScreen.txt_SelectDestination.sendKeys(receiver);
 
 //        Enter amount
-        TransferMoneyScreen.txt_Amount.sendKeys("50");
+        TransferMoneyScreen.txt_Amount.sendKeys(amount);
 
-//        Tap on Next button
-        TransferMoneyScreen.btn_Next.click();
+//        Tap on Proceed button
+        TransferMoneyScreen.btn_Proceed.click();
+
+//        CheckPoint: Transfer Confirmation popup should appear
+        softAssert2.assertEquals(TransferMoneyScreen.ttl_TransferConfirmation.getText(), "TRANSFER CONFIRMATION");
+
+//        Tap ok button
+        TransferMoneyScreen.btn_Ok.click();
 
 //        Check Point: PIN screen should appear
-        softAssert2.assertEquals(VerifyPINScreen.lbl_Header.getText(), "PIN");
+        softAssert2.assertEquals(EnterPinScreen.ttl_EnterVerificationPin.getText(), "Enter Verification Pin");
 
-//        Verify PIn
-        VerifyPINScreen.verifyPIN(pin);
+//        Enter PIn
+        EnterPinScreen.txt_PIN.sendKeys(pin);
+
+//        Tap ok button
+        EnterPinScreen.btn_Ok.click();
 
 //        Check Point: transaction should be successful
+        softAssert2.assertEquals(PaymentReceiptScreen.ttl_PaymentReceipt.getText(), "Transfer Receipt");
+        softAssert2.assertEquals(PaymentReceiptScreen.lbl_PaymentType.getText(), receiver);
+        softAssert2.assertEquals(PaymentReceiptScreen.lbl_Amount.getText(), amount);
+
+//        Go back Wallet
+        TransferMoneyScreen.btn_Back.click();
         softAssert2.assertAll();
     }
 

@@ -6,21 +6,17 @@ import configurations.TestInitiation;
 import org.testng.asserts.SoftAssert;
 import supports.AndroidPageFactory;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 public class Account extends TestInitiation {
 
     private LogInLocators LoginScreen;
     private TopUpLocators TopUpScreen;
     private SignUpLocators SignUpScreen;
-    private SetPINLocators SetPINScreen;
+    private EnterPinLocators SetPINScreen;
     private WalletLocators WalletScreen;
-    private VerifyAccountLocators EnterOTPScreen;
-    private SetWalletIDLocators SetWalletIDScreen;
-    private EnterPhoneNumberLocators EnterPhoneNumberScreen;
+    private ProfileLocators ProfileScreen;
+    private CreateWalletIdLocators CreateWalletIdScreen;
     private EnterReferralCodeLocators EnterReferralCodeScreen;
-    private VerifyMobileNumberLocators VerifyMobileNumberScreen;
+    private VerifyEmailOrPhoneNumberLocators VerifyEmailOrPhoneNumberScreen;
 
     SoftAssert softAssert1 = new SoftAssert();
     SoftAssert softAssert2 = new SoftAssert();
@@ -33,70 +29,51 @@ public class Account extends TestInitiation {
         LoginScreen = AndroidPageFactory.initElements(androidDriver, LogInLocators.class);
         TopUpScreen = AndroidPageFactory.initElements(androidDriver, TopUpLocators.class);
         SignUpScreen = AndroidPageFactory.initElements(androidDriver, SignUpLocators.class);
-        SetPINScreen = AndroidPageFactory.initElements(androidDriver, SetPINLocators.class);
+        SetPINScreen = AndroidPageFactory.initElements(androidDriver, EnterPinLocators.class);
         WalletScreen = AndroidPageFactory.initElements(androidDriver, WalletLocators.class);
-        EnterOTPScreen = AndroidPageFactory.initElements(androidDriver, VerifyAccountLocators.class);
-        SetWalletIDScreen = AndroidPageFactory.initElements(androidDriver, SetWalletIDLocators.class);
-        EnterPhoneNumberScreen = AndroidPageFactory.initElements(androidDriver, EnterPhoneNumberLocators.class);
+        ProfileScreen = AndroidPageFactory.initElements(androidDriver, ProfileLocators.class);
+        CreateWalletIdScreen = AndroidPageFactory.initElements(androidDriver, CreateWalletIdLocators.class);
         EnterReferralCodeScreen = AndroidPageFactory.initElements(androidDriver, EnterReferralCodeLocators.class);
-        VerifyMobileNumberScreen = AndroidPageFactory.initElements(androidDriver, VerifyMobileNumberLocators.class);
+        VerifyEmailOrPhoneNumberScreen = AndroidPageFactory.initElements(androidDriver, VerifyEmailOrPhoneNumberLocators.class);
     }
 
     @Test
-    public void VerifySigningUpAccountWithinVerifyPhoneNumber(){
+    public void VerifySigningUpAccountUsingEmail(){
 
 //        Go to Sign Up screen
-        LoginScreen.lbl_SignUpWithEmail.click();
+        LoginScreen.lbl_SignUp.click();
 
 //        Check Point: Sign Up screen should appear
-        softAssert1.assertTrue(SignUpScreen.txt_FirstName.isEnabled());
-        softAssert1.assertTrue(SignUpScreen.txt_LastName.isEnabled());
-        softAssert1.assertTrue(SignUpScreen.txt_Email.isEnabled());
-        softAssert1.assertTrue(SignUpScreen.txt_ConfirmEmail.isEnabled());
+        softAssert1.assertTrue(SignUpScreen.txt_FullName.isEnabled());
+        softAssert1.assertTrue(SignUpScreen.txt_Username.isEnabled());
+        softAssert1.assertTrue(SignUpScreen.spn_Country.isEnabled());
         softAssert1.assertTrue(SignUpScreen.txt_Password.isEnabled());
         softAssert1.assertTrue(SignUpScreen.txt_ConfirmPassword.isEnabled());
+        softAssert1.assertTrue(SignUpScreen.btn_SignUp.isEnabled());
 
-//        Input information
-        SignUpScreen.enterAccountInformation(firstName, lastName, email, randomText);
+//        Enter full name
+        SignUpScreen.txt_FullName.sendKeys(fullName);
 
-//        Check Point: Verify Your Mobile Number screen should appear
-        softAssert1.assertTrue(VerifyMobileNumberScreen.btn_TakeMeThere.isEnabled());
+//        Enter username
+        SignUpScreen.txt_Username.sendKeys(email);
 
-//        Tap Take Me There button
-        VerifyMobileNumberScreen.btn_TakeMeThere.click();
+//        Enter password
+        SignUpScreen.txt_Password.sendKeys(password);
 
-//        Check Point: Enter Phone Number screen should appear
-        softAssert1.assertEquals(EnterPhoneNumberScreen.lbl_Header.getText(), "Enter Phone Number");
+//        Enter confirm password
+        SignUpScreen.txt_ConfirmPassword.sendKeys(password);
 
-//        Enter phone number
-        EnterPhoneNumberScreen.txt_PhoneNumber.sendKeys(randomText);
+//        Tap sign up
+        SignUpScreen.btn_SignUp.click();
 
-//        Tap Next button
-        EnterPhoneNumberScreen.btn_Next.click();
-
-//        Check Point: Enter OTP screen should appear
-        softAssert1.assertEquals(EnterOTPScreen.lbl_Header.getText(), "Enter OTP");
+//        Check Point: Verify Email screen should appear
+        softAssert1.assertEquals(VerifyEmailOrPhoneNumberScreen.ttl_VerifyEmailOrPhoneNumber.getText(), "Verify Email");
 
 //        Enter OTP
-        EnterOTPScreen.txt_OTP.sendKeys(pin);
-
-//        Tap Next button
-        EnterOTPScreen.btn_Next.click();
-
-//        Check Point: Set PIN screen should appear
-        softAssert1.assertEquals(SetPINScreen.lbl_Header.getText(), "Set PIN");
-
-//        Enter PIN
-        SetPINScreen.txt_PIN.sendKeys(pin);
-
-//        Enter confirm PIN
-        SetPINScreen.txt_ConfirmPIN.sendKeys(pin);
-
-//        Tap Save button
-        SetPINScreen.btn_Save.click();
+        VerifyEmailOrPhoneNumberScreen.txt_OTP.sendKeys(otp);
 
 //        Check Point: Enter Referral Code screen should appear
-        softAssert1.assertTrue(EnterReferralCodeScreen.txt_ReferralCode.isEnabled());
+        softAssert1.assertEquals(EnterReferralCodeScreen.ttl_EnterReferralCode.getText(), "Enter Referral Code");
 
 //        Check on "I don't have referral code" radio button
         EnterReferralCodeScreen.rad_NotHaveReferralCode.click();
@@ -104,82 +81,95 @@ public class Account extends TestInitiation {
 //        Tap Submit button
         EnterReferralCodeScreen.btn_Submit.click();
 
-//        Tap Skip button in Upload Photo screen
-        EnterReferralCodeScreen.btn_SkipUploadAvatar.click();
-
 //        Check Point: Wallet screen should appear
-        softAssert1.assertTrue(WalletScreen.lbl_YourBalance.isDisplayed());
+        softAssert1.assertTrue(WalletScreen.lbl_AvailableBalance.isDisplayed());
         softAssert1.assertAll();
     }
 
     @Test(priority = 1)
-    public void VerifyCreatingWalletID(){
+    public void VerifyCreatingWalletId(){
 
 //        Tap Top up button
         WalletScreen.btn_TopUp.click();
 
-//        Check Point: Set Wallet ID screen should appear
-        softAssert2.assertEquals(SetWalletIDScreen.lbl_Header.getText(), "Set Wallet ID");
+//        Check Point: Create Wallet ID screen should appear
+        softAssert2.assertEquals(CreateWalletIdScreen.ttl_CreateWalletId.getText(), "Create Wallet Id");
 
-//        Check Point: The phone number should be displayed in Set Wallet ID screen
-        softAssert2.assertTrue(SetWalletIDScreen.lbl_PhoneNumber.getText().contains(randomText.substring(1)));
+//        Check Point: The email should be displayed in Create Wallet Id screen
+        softAssert2.assertEquals(CreateWalletIdScreen.lbl_username.getText(), email);
 
-//        Enter Wallet ID
-        SetWalletIDScreen.txt_WalletID.sendKeys(walletID);
+//        Enter Wallet pin
+        CreateWalletIdScreen.txt_Pin.sendKeys(pin);
 
-//        Enter confirm wallet ID
-        SetWalletIDScreen.txt_ConfirmWalletID.sendKeys(walletID);
+//        Enter confirm wallet pin
+        CreateWalletIdScreen.txt_ConfirmPin.sendKeys(pin);
 
-//        Tap Save button
-        SetWalletIDScreen.btn_Save.click();
-
-//        Check Point: Wallet screen should appear
-        softAssert2.assertTrue(WalletScreen.lbl_YourBalance.isDisplayed());
-
-//        Tap Top up again
-        WalletScreen.btn_TopUp.click();
+//        Tap Create Wallet button
+        CreateWalletIdScreen.btn_CreateWallet.click();
 
 //        Check Point: Top Up screen should appear
-        softAssert2.assertEquals(TopUpScreen.lbl_Header.getText(), "Top up");
+        softAssert2.assertEquals(TopUpScreen.ttl_TopUp.getText(), "Top Up");
 
-//        Go to Login screen
+//        Logout
         TopUpScreen.btn_Back.click();
-        WalletScreen.lbl_Logout.click();
+        WalletScreen.btn_Profile.click();
+        ProfileScreen.btn_Logout.click();
         softAssert2.assertAll();
     }
 
     @Test(priority = 2)
-    public void VerifySigningUpAccountWithoutVerifyPhoneNumber() throws InterruptedException {
+    public void VerifySigningUpAccountUsingPhoneNumber() throws InterruptedException {
 
-        String randomText = new SimpleDateFormat("MMddHHmmss").format(Calendar.getInstance().getTime());
-        String email = prefix + "email" + randomText + "@gmail.com";
+//        Go to Sign Up screen
+        LoginScreen.lbl_SignUp.click();
 
-//        Sign up new account
-        SignUpScreen.signUpAccount(firstName, lastName, email, randomText, "", pin, pin);
+//        Enter full name
+        SignUpScreen.txt_FullName.sendKeys(fullName);
+
+//        Enter username
+        SignUpScreen.txt_Username.sendKeys(phoneNumber);
+
+//        Enter password
+        SignUpScreen.txt_Password.sendKeys(password);
+
+//        Enter confirm password
+        SignUpScreen.txt_ConfirmPassword.sendKeys(password);
+
+//        Tap sign up
+        SignUpScreen.btn_SignUp.click();
+
+//        Check Point: Verify Phone Number screen should appear
+        softAssert3.assertEquals(VerifyEmailOrPhoneNumberScreen.ttl_VerifyEmailOrPhoneNumber.getText(), "Verify Phone Number");
+
+//        Enter OTP
+        VerifyEmailOrPhoneNumberScreen.txt_OTP.sendKeys(otp);
+
+//        Check on "I don't have referral code" radio button in Enter Referral Code screen
+        EnterReferralCodeScreen.rad_NotHaveReferralCode.click();
+
+//        Tap Submit button
+        EnterReferralCodeScreen.btn_Submit.click();
+
+//        Check Point: Wallet screen should appear
+        softAssert3.assertTrue(WalletScreen.lbl_AvailableBalance.isDisplayed());
 
 //        Tap Top Up button
         WalletScreen.btn_TopUp.click();
 
-//        Check Point: Enter Phone Number screen should appear
-        softAssert3.assertEquals(EnterPhoneNumberScreen.lbl_Header.getText(), "Enter Phone Number");
+//        Check Point: The phone number should be displayed in Create Wallet Id screen
+        softAssert3.assertEquals(CreateWalletIdScreen.lbl_username.getText(), phoneNumber);
 
-//        Verify phone number
-        SignUpScreen.verifyPhoneNumber(randomText, pin, pin);
+//        Enter wallet pin
+        CreateWalletIdScreen.txt_Pin.sendKeys(pin);
 
-//        Enter wallet ID
-        SetWalletIDScreen.txt_WalletID.sendKeys(walletID);
+//        Enter confirm wallet pin
+        CreateWalletIdScreen.txt_ConfirmPin.sendKeys(pin);
 
-//        Enter confirm walletID
-        SetWalletIDScreen.txt_ConfirmWalletID.sendKeys(walletID);
-
-//        Tap Save button
-        SetWalletIDScreen.btn_Save.click();
-
-//        Tap Top up again
-        WalletScreen.btn_TopUp.click();
+//        Tap Create Wallet button
+        CreateWalletIdScreen.btn_CreateWallet.click();
 
 //        Check Point: Top Up screen should appear
-        softAssert2.assertEquals(TopUpScreen.lbl_Header.getText(), "Top up");
+        softAssert3.assertEquals(TopUpScreen.ttl_TopUp.getText(), "Top Up");
         softAssert3.assertAll();
     }
 }

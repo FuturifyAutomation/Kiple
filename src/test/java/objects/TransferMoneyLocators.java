@@ -18,36 +18,51 @@ public class TransferMoneyLocators {
      * ttl --> title
      */
 
-    @FindBy (id = "com.mobi.kiple:id/text_title")
+    @FindBy (id = "com.mobiduu.kiple:id/text_title")
     public WebElement ttl_TransferMoney;
 
-    @FindBy(id = "com.mobi.kiple:id/button_back")
+    @FindBy(id = "com.mobiduu.kiple:id/button_back")
     public WebElement btn_Back;
 
-    @FindBy(id = "com.mobi.kiple:id/tgbContactEmail")
-    public WebElement btn_AddContact;
+    @FindBy(id = "com.mobiduu.kiple:id/tgbContactEmail")
+    public WebElement btn_Contact;
 
-    @FindBy(id = "com.mobi.kiple:id/tgbScanQRCode")
+    @FindBy(id = "com.mobiduu.kiple:id/tgbScanQRCode")
     public WebElement btn_ScanQRCode;
 
-    @FindBy(id = "com.mobi.kiple:id/edtValue")
+    @FindBy(id = "com.mobiduu.kiple:id/edtValue")
     public WebElement txt_SelectDestination;
 
-    @FindBy(id = "com.mobi.kiple:id/edtAmount")
+    @FindBy(id = "com.mobiduu.kiple:id/edtAmount")
     public WebElement txt_Amount;
 
-    @FindBy(id = "com.mobi.kiple:id/button_proceed")
+    @FindBy(id = "com.mobiduu.kiple:id/button_proceed")
     public WebElement btn_Proceed;
 
-    @FindBy(id = "com.mobi.kiple:id/tvTitle")
+    @FindBy(id = "com.mobiduu.kiple:id/tvTitle")
     public WebElement ttl_TransferConfirmation;
 
-    @FindBy(id = "com.mobi.kiple:id/tvContact")
+    @FindBy(id = "com.mobiduu.kiple:id/tvAmount")
+    public WebElement lbl_Amount;
+
+    @FindBy(id = "com.mobiduu.kiple:id/tvReceiverName")
+    public WebElement lbl_ReceiverName;
+
+    @FindBy(id = "com.mobiduu.kiple:id/button_ok")
+    public WebElement btn_Ok;
+
+    @FindBy(id = "com.mobiduu.kiple:id/tvContact")
     public WebElement btn_ContactOption;
 
-    @FindBy(id = "com.mobi.kiple:id/tvEmail")
+    @FindBy(id = "com.mobiduu.kiple:id/tvEmail")
     public WebElement btn_EmailOption;
 
-    @FindBy(id = "com.mobi.kiple:id/imvCancel")
-    public WebElement btn_Close;
+    @FindBy(id = "com.mobiduu.kiple:id/imvCancel")
+    public WebElement btn_CloseTransferConfirmation;
+
+    @FindBy(id = "com.android.packageinstaller:id/permission_message")
+    public WebElement lbl_Permission;
+
+    @FindBy(id = "com.android.packageinstaller:id/permission_allow_button")
+    public WebElement btn_Allow;
 }
