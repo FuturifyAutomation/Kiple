@@ -26,36 +26,52 @@ public class MobileReloadLocators {
      * ttl --> title
      */
 
-    @FindBy (id = "com.mobi.kiple:id/text_title")
+    @FindBy (id = "com.mobi.wallet:id/text_title")
     public WebElement lbl_Header;
 
-    @FindBy(id = "com.mobi.kiple:id/button_back")
+    @FindBy(id = "com.mobi.wallet:id/button_back")
     public WebElement btn_Back;
 
-    @FindBy(id = "com.mobi.kiple:id/spnMobileOperator")
+    @FindBy(id = "com.mobi.wallet:id/spnMobileOperator")
     public WebElement spn_MobileOperator;
 
-    @FindBy(id = "com.mobi.kiple:id/tvTitle")
+    @FindBy(id = "com.mobi.wallet:id/tvTitle")
     public WebElement lbl_SelectMobileOperatorPopup;
 
-    @FindBy(id = "com.mobi.kiple:id/spnPackage")
+    @FindBy(id = "com.mobi.wallet:id/spnPackage")
     public WebElement spn_Package;
 
-    @FindBy(id = "com.mobi.kiple:id/edtPhone")
+    @FindBy(id = "com.mobi.wallet:id/edtPhone")
     public WebElement txt_PhoneNumber;
 
-    @FindBy(id = "com.mobi.kiple:id/ibtnSelectContact")
+    @FindBy(id = "com.mobi.wallet:id/ibtnSelectContact")
     public WebElement btn_Contacts;
 
-    @FindBy(id = "com.mobi.kiple:id/btnNext")
+    @FindBy(id = "com.mobi.wallet:id/btnNext")
     public WebElement btn_Proceed;
 
-    public void selectMobileOperator(String operatorName){
+    @FindBy(id = "com.mobi.wallet:id/imvCancel")
+    public WebElement btn_Close;
+
+    public void selectMobileOperator(String operatorName) throws InterruptedException {
+
+//        Get current operator
+        String currentOperator = spn_MobileOperator.getText();
+        int count = 0;
+
 //        Tap on Operator selection
         spn_MobileOperator.click();
+        Thread.sleep(3000);
 
 //        Select operator
-        androidDriver.findElement(By.xpath(".//android.widget.CheckedTextView[@text='" + operatorName + "']")).click();
+        while (currentOperator != operatorName){
+            spn_MobileOperator.click();
+            Thread.sleep(3000);
+            count = count + 1;
+            androidDriver.findElement(By.xpath(".//android.widget.GridView[1]/android.widget.LinearLayout[" + count + "]")).click();
+            btn_Close.click();
+            currentOperator = spn_MobileOperator.getText();
+        }
     }
 
     public void selectPackage(String packageAmount){
@@ -63,6 +79,7 @@ public class MobileReloadLocators {
         spn_Package.click();
 
 //        Select operator
-        androidDriver.findElement(By.xpath(".//android.widget.CheckedTextView[@text='" + packageAmount + "']")).click();
+        androidDriver.findElement(By.xpath(".//android.widget.ListView[1]/android.widget.TextView[@text='" + packageAmount + "']")).click();
+        btn_Close.click();
     }
 }

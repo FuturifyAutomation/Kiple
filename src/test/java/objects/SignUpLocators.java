@@ -35,28 +35,28 @@ public class SignUpLocators{
      * ttl --> title
      */
 
-    @FindBy(id = "com.mobi.kiple:id/imbBack")
+    @FindBy (id = "com.mobi.kiple:id/imbBack")
     public WebElement btn_Back;
 
-    @FindBy (id = "com.mobiduu.kiple:id/edtFullName")
+    @FindBy (id = "com.mobi.kiple:id/edtFullName")
     public WebElement txt_FullName;
 
-    @FindBy (id = "com.mobiduu.kiple:id/edtEmail")
+    @FindBy (id = "com.mobi.kiple:id/edtEmail")
     public WebElement txt_Username;
 
-    @FindBy (id = "com.mobiduu.kiple:id/tvCountry")
+    @FindBy (id = "com.mobi.kiple:id/tvCountry")
     public WebElement spn_Country;
 
-    @FindBy (id = "com.mobiduu.kiple:id/edtPassword")
+    @FindBy (id = "com.mobi.kiple:id/edtPassword")
     public WebElement txt_Password;
 
-    @FindBy (id = "com.mobiduu.kiple:id/edtConfirmPassword")
+    @FindBy (id = "com.mobi.kiple:id/edtConfirmPassword")
     public WebElement txt_ConfirmPassword;
 
-    @FindBy (id = "com.mobiduu.kiple:id/tvCondition")
+    @FindBy (id = "com.mobi.kiple:id/tvCondition")
     public WebElement lnk_TermConditions;
 
-    @FindBy (id = "com.mobiduu.kiple:id/btnSubmit")
+    @FindBy (id = "com.mobi.kiple:id/btnSubmit")
     public WebElement btn_SignUp;
 
     public void signUpAccount(String fullName, String username, String password, String otp, String referralCode){

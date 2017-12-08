@@ -31,14 +31,25 @@
         <!--</packages>-->
     <!--</test>-->
 
-    <test name="J2">
+    <!--<test name="J2">-->
+        <!--<parameter name="platformName" value="Android"/>-->
+        <!--<parameter name="platformVersion" value="5.1.1"/>-->
+        <!--<parameter name="deviceName" value="9201347300c483bd"/>-->
+        <!--<parameter name="uRL" value="http://0.0.0.0:4723/wd/hub"/>-->
+        <!--<parameter name="prefix" value="j2"/>-->
+        <!--<classes>-->
+        <!--<class name="modules.WalletTransactions"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <test name="Nexus">
         <parameter name="platformName" value="Android"/>
-        <parameter name="platformVersion" value="5.1.1"/>
-        <parameter name="deviceName" value="9201347300c483bd"/>
+        <parameter name="platformVersion" value="7.1.2"/>
+        <parameter name="deviceName" value="00c274641540bbc3"/>
         <parameter name="uRL" value="http://0.0.0.0:4723/wd/hub"/>
-        <parameter name="prefix" value="j2"/>
+        <parameter name="prefix" value="nexus"/>
         <classes>
-        <class name="modules.Transactions"/>
+            <class name="modules.test"/>
         </classes>
     </test>
 </suite>

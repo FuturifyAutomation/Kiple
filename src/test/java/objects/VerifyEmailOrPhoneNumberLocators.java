@@ -18,18 +18,18 @@ public class VerifyEmailOrPhoneNumberLocators {
      * ttl --> title
      */
 
-    @FindBy (id = "com.mobiduu.kiple:id/text_title")
+    @FindBy (id = "com.mobi.kiple:id/text_title")
     public WebElement ttl_VerifyEmailOrPhoneNumber;
 
-    @FindBy(id = "com.mobiduu.kiple:id/button_back")
+    @FindBy(id = "com.mobi.kiple:id/button_back")
     public WebElement btn_Back;
 
-    @FindBy(id = "com.mobiduu.kiple:id/edtVerifyCode")
+    @FindBy(id = "com.mobi.kiple:id/edtVerifyCode")
     public WebElement txt_OTP;
 
-    @FindBy(id = "com.mobiduu.kiple:id/tvTitle")
+    @FindBy(id = "com.mobi.kiple:id/tvTitle")
     public WebElement lbl_Username;
 
-    @FindBy(id = "com.mobiduu.kiple:id/btnResendCode")
+    @FindBy(id = "com.mobi.kiple:id/btnResendCode")
     public WebElement btn_ResendConfirmationCode;
 }

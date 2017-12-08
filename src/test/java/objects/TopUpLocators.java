@@ -18,30 +18,30 @@ public class TopUpLocators {
      * ttl --> title
      */
 
-    @FindBy (id = "com.mobiduu.kiple:id/text_title")
+    @FindBy (id = "com.mobi.kiple:id/text_title")
     public WebElement ttl_TopUp;
 
-    @FindBy(id = "com.mobiduu.kiple:id/button_back")
+    @FindBy(id = "com.mobi.kiple:id/button_back")
     public WebElement btn_Back;
 
-    @FindBy(id = "com.mobiduu.kiple:id/button_option_1")
+    @FindBy(id = "com.mobi.kiple:id/button_option_1")
     public WebElement btn_Option01;
 
-    @FindBy(id = "com.mobiduu.kiple:id/button_option_2")
+    @FindBy(id = "com.mobi.kiple:id/button_option_2")
     public WebElement btn_Option02;
 
-    @FindBy(id = "com.mobiduu.kiple:id/button_option_3")
+    @FindBy(id = "com.mobi.kiple:id/button_option_3")
     public WebElement btn_Option03;
 
-    @FindBy(id = "com.mobiduu.kiple:id/button_option_4")
+    @FindBy(id = "com.mobi.kiple:id/button_option_4")
     public WebElement btn_Option04;
 
-    @FindBy(id = "com.mobiduu.kiple:id/edtAmount")
+    @FindBy(id = "com.mobi.kiple:id/edtAmount")
     public WebElement txt_AddManualAmount;
 
-    @FindBy(id = "com.mobiduu.kiple:id/btn_pay_online")
+    @FindBy(id = "com.mobi.kiple:id/btn_pay_online")
     public WebElement btn_PayByOnlineBanking;
 
-    @FindBy(id = "com.mobiduu.kiple:id/btn_pay_credit")
+    @FindBy(id = "com.mobi.kiple:id/btn_pay_credit")
     public WebElement btn_PayByCreditDebitCard;
 }

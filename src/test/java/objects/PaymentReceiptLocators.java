@@ -18,15 +18,15 @@ public class PaymentReceiptLocators {
      * ttl --> title
      */
 
-    @FindBy (id = "com.mobiduu.kiple:id/text_title")
+    @FindBy (id = "com.mobi.kiple:id/text_title")
     public WebElement ttl_PaymentReceipt;
 
-    @FindBy(id = "com.mobiduu.kiple:id/button_back")
+    @FindBy(id = "com.mobi.kiple:id/button_back")
     public WebElement btn_Back;
 
-    @FindBy(id = "com.mobiduu.kiple:id/tvPaymentType")
+    @FindBy(id = "com.mobi.kiple:id/tvPaymentType")
     public WebElement lbl_PaymentType;
 
-    @FindBy(id = "com.mobiduu.kiple:id/tvAmount")
+    @FindBy(id = "com.mobi.kiple:id/tvAmount")
     public WebElement lbl_Amount;
 }

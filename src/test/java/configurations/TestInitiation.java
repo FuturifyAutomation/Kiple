@@ -26,26 +26,27 @@ public class TestInitiation {
     public String otp = "123456";
     public String pin = "111111";
 
-    @BeforeTest
+
     @Parameters({"platformName","platformVersion", "deviceName", "uRL", "prefix"})
+    @BeforeTest
     public void initializeTestSuite(String platformName, String platformVersion, String deviceName, String uRL, String prefix) throws MalformedURLException {
 
         DesiredCapabilities caps = new DesiredCapabilities();
 
 //        Device information
-        caps.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, platformName);
+        caps.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
         caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, platformVersion);
 
 //        App information
-        caps.setCapability("appPackage","com.mobi.kiple");
+        caps.setCapability("appPackage","com.mobi.wallet");
         caps.setCapability("appActivity","com.mobi.wallet.MainActivity");
         caps.setCapability("resetKeyboard", true);
         caps.setCapability("unicodeKeyboard", true);
 
 //        Server inform
         androidDriver = new AndroidDriver(new URL(uRL), caps);
-        androidDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        androidDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 //        Initialize variable "prefix" from Parameter of TestNG
         this.prefix = prefix;

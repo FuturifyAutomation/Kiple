@@ -19,16 +19,16 @@ public class CreateWalletIdLocators {
     @FindBy (id = "com.mobi.kiple:id/tvHeader")
     public WebElement ttl_CreateWalletId;
 
-    @FindBy(id = "com.mobiduu.kiple:id/tvPhone")
+    @FindBy(id = "com.mobi.kiple:id/tvPhone")
     public WebElement lbl_username;
 
-    @FindBy(id = "com.mobiduu.kiple:id/edtWalletID")
+    @FindBy(id = "com.mobi.kiple:id/edtWalletID")
     public WebElement txt_Pin;
 
-    @FindBy(id = "com.mobiduu.kiple:id/edtConfirmWalletID")
+    @FindBy(id = "com.mobi.kiple:id/edtConfirmWalletID")
     public WebElement txt_ConfirmPin;
 
-    @FindBy(id = "com.mobiduu.kiple:id/btnSave")
+    @FindBy(id = "com.mobi.kiple:id/btnSave")
     public WebElement btn_CreateWallet;
 
     public void createWalletID(String walletPin){

@@ -16,13 +16,13 @@ public class EnterPinLocators {
      * spn --> spinner/combobox/dropdown
      */
 
-    @FindBy (id = "com.mobiduu.kiple:id/tv")
+    @FindBy (id = "com.mobi.kiple:id/tv")
     public WebElement ttl_EnterVerificationPin;
 
-    @FindBy (id = "com.mobiduu.kiple:id/edtPassword")
+    @FindBy (id = "com.mobi.kiple:id/edtPassword")
     public WebElement txt_PIN;
 
-    @FindBy (id = "com.mobiduu.kiple:id/tvForgotPIN")
+    @FindBy (id = "com.mobi.kiple:id/tvForgotPIN")
     public WebElement lnk_ForgotPin;
 
     @FindBy (xpath = ".//android.widget.Button[@text='OK']")

@@ -26,23 +26,26 @@ public class PayBillsLocators {
      * ttl --> title
      */
 
-    @FindBy (id = "com.mobi.kiple:id/text_title")
+    @FindBy (id = "com.mobi.wallet:id/text_title")
     public WebElement ttl_PayBills;
 
-    @FindBy(id = "com.mobi.kiple:id/button_back")
+    @FindBy(id = "com.mobi.wallet:id/button_back")
     public WebElement btn_Back;
 
-    @FindBy(id = "com.mobi.kiple:id/spnBill")
+    @FindBy(id = "com.mobi.wallet:id/spnBill")
     public WebElement spn_Bill;
 
-    @FindBy(id = "com.mobi.kiple:id/edtAmount")
+    @FindBy(id = "com.mobi.wallet:id/edtAmount")
     public WebElement txt_Amount;
 
-    @FindBy(id = "com.mobi.kiple:id/edtAccount")
+    @FindBy(id = "com.mobi.wallet:id/edtAccount")
     public WebElement txt_AccountNumber;
 
-    @FindBy(id = "com.mobi.kiple:id/btnNext")
+    @FindBy(id = "com.mobi.wallet:id/btnNext")
     public WebElement btn_Proceed;
+
+    @FindBy(id = "com.mobi.wallet:id/imvCancel")
+    public WebElement btn_Close;
 
     public void selectBills(String billName){
 //        Tap on Bills selection

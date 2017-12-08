@@ -18,33 +18,33 @@ public class LogInLocators {
      * ttl --> title
      */
 
-    @FindBy (id = "com.mobi.kiple:id/edtEmail")
+    @FindBy (id = "com.mobi.wallet:id/edtEmail")
     public WebElement txt_Email;
 
-    @FindBy (id = "com.mobi.kiple:id/edtPassword")
+    @FindBy (id = "com.mobi.wallet:id/edtPassword")
     public WebElement txt_Password;
 
-    @FindBy(id = "com.mobi.kiple:id/cbRemember")
+    @FindBy(id = "com.mobi.wallet:id/cbRemember")
     public WebElement chb_RememberMe;
 
-    @FindBy (id = "com.mobi.kiple:id/tvForgotPIN")
+    @FindBy (id = "com.mobi.wallet:id/tvForgotPIN")
     public WebElement lbl_ForgotPassword;
 
-    @FindBy (id = "com.mobi.kiple:id/btnLogIn")
+    @FindBy (id = "com.mobi.wallet:id/btnLogIn")
     public WebElement btn_Login;
 
-    @FindBy (id = "com.mobi.kiple:id/btnLogInFB")
+    @FindBy (id = "com.mobi.wallet:id/btnLogInFB")
     public WebElement btn_Facebook;
 
-    @FindBy (id = "com.mobi.kiple:id/btnLogInGG")
+    @FindBy (id = "com.mobi.wallet:id/btnLogInGG")
     public WebElement btn_Google;
 
-    @FindBy (id = "com.mobi.kiple:id/tvSignUp")
+    @FindBy (id = "com.mobi.wallet:id/tvSignUp")
     public  WebElement lbl_SignUp;
 
-    public void logIn(String email, String password){
+    public void logIn(String username, String password){
         //Input email
-        txt_Email.sendKeys(email);
+        txt_Email.sendKeys(username);
 
         //Input password
         txt_Password.sendKeys(password);

@@ -25,33 +25,36 @@ public class WithdrawCashLocators {
      * ttl --> title
      */
 
-    @FindBy (id = "com.mobi.kiple:id/text_title")
+    @FindBy (id = "com.mobi.wallet:id/text_title")
     public WebElement ttl_WithdrawCash;
 
-    @FindBy(id = "com.mobi.kiple:id/button_back")
+    @FindBy(id = "com.mobi.wallet:id/button_back")
     public WebElement btn_Back;
 
-    @FindBy(id = "com.mobi.kiple:id/edtRecipientName")
+    @FindBy(id = "com.mobi.wallet:id/edtRecipientName")
     public WebElement txt_RecipientName;
 
-    @FindBy(id = "com.mobi.kiple:id/edtNricNumber")
+    @FindBy(id = "com.mobi.wallet:id/edtNricNumber")
     public WebElement txt_NRICPassportNumber;
 
-    @FindBy(id = "com.mobi.kiple:id/edtAmount")
+    @FindBy(id = "com.mobi.wallet:id/edtAmount")
     public WebElement txt_Amount;
 
-    @FindBy(id = "com.mobi.kiple:id/spnBanks")
-    public WebElement spn_SelectYourBank;
+    @FindBy(id = "com.mobi.wallet:id/spnBanks")
+    public WebElement spn_Banks;
 
-    @FindBy(id = "com.mobi.kiple:id/edtBankNumber")
+    @FindBy(id = "com.mobi.wallet:id/edtBankNumber")
     public WebElement txt_BankAccountNumber;
 
-    @FindBy(id = "com.mobi.kiple:id/btnProcess")
+    @FindBy(id = "com.mobi.wallet:id/btnProcess")
     public WebElement btn_Proceed;
+
+    @FindBy(id = "com.mobi.wallet:id/imvCancel")
+    public WebElement btn_Close;
 
     public void selectBank(String bankName){
 //        Tap on Bank selection
-        spn_SelectYourBank.click();
+        spn_Banks.click();
 
 //        Select bank name
         androidDriver.findElement(By.xpath(".//android.widget.CheckedTextView[@text='" + bankName + "']")).click();
