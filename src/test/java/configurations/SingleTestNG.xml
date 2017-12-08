@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Kiple" parallel="tests" thread-count="1">
-    <listeners>
-        <listener class-name="supports.ExcelReport"/>
-    </listeners>
+    <!--<listeners>-->
+        <!--<listener class-name="supports.ExcelReport"/>-->
+    <!--</listeners>-->
     <!--<test name="HTC">-->
         <!--<parameter name="platformVersion" value="4.4.2"/>-->
         <!--<parameter name="deviceName" value="LC6B4B402499"/>-->
@@ -31,25 +31,25 @@
         <!--</packages>-->
     <!--</test>-->
 
-    <!--<test name="J2">-->
-        <!--<parameter name="platformName" value="Android"/>-->
-        <!--<parameter name="platformVersion" value="5.1.1"/>-->
-        <!--<parameter name="deviceName" value="9201347300c483bd"/>-->
-        <!--<parameter name="uRL" value="http://0.0.0.0:4723/wd/hub"/>-->
-        <!--<parameter name="prefix" value="j2"/>-->
-        <!--<classes>-->
-        <!--<class name="modules.WalletTransactions"/>-->
-        <!--</classes>-->
-    <!--</test>-->
-
-    <test name="Nexus">
+    <test name="J2">
         <parameter name="platformName" value="Android"/>
-        <parameter name="platformVersion" value="7.1.2"/>
-        <parameter name="deviceName" value="00c274641540bbc3"/>
+        <parameter name="platformVersion" value="5.1.1"/>
+        <parameter name="deviceName" value="9201347300c483bd"/>
         <parameter name="uRL" value="http://0.0.0.0:4723/wd/hub"/>
-        <parameter name="prefix" value="nexus"/>
+        <parameter name="prefix" value="j2"/>
         <classes>
-            <class name="modules.test"/>
+        <class name="modules.UserProfile"/>
         </classes>
     </test>
+
+    <!--<test name="Nexus">-->
+        <!--<parameter name="platformName" value="Android"/>-->
+        <!--<parameter name="platformVersion" value="7.1.2"/>-->
+        <!--<parameter name="deviceName" value="00c274641540bbc3"/>-->
+        <!--<parameter name="uRL" value="http://0.0.0.0:4723/wd/hub"/>-->
+        <!--<parameter name="prefix" value="nexus"/>-->
+        <!--<classes>-->
+            <!--<class name="modules.test"/>-->
+        <!--</classes>-->
+    <!--</test>-->
 </suite>

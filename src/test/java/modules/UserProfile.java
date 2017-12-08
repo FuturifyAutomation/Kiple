@@ -18,6 +18,8 @@ public class UserProfile extends TestInitiation {
     private WithdrawCashLocators WithdrawCashScreen;
     private PaymentReceiptLocators PaymentReceiptScreen;
 
+//    private AndroidDriver androidDriver;
+
     SoftAssert softAssert1 = new SoftAssert();
     SoftAssert softAssert2 = new SoftAssert();
     SoftAssert softAssert3 = new SoftAssert();
@@ -26,10 +28,10 @@ public class UserProfile extends TestInitiation {
 
     private String username = "uat10@mailinator.com";
     private String password = "q1111111";
-    private String receiver = "uat24@mailinator.com";
 
     @BeforeMethod
-    public void initializeTestCase() throws InterruptedException {
+    public void initializeTestCase(){
+
 //        Initialize locators
         LoginScreen = AndroidPageFactory.initElements(androidDriver, LogInLocators.class);
         WalletScreen = AndroidPageFactory.initElements(androidDriver, WalletLocators.class);
@@ -125,6 +127,8 @@ public class UserProfile extends TestInitiation {
     @Test
     public void VerifyEditingProfile(){
 
+        String passPort = "76234816";
+
 //        Go to Edit Profile
         UserProfileScreen.btn_EditProfile.click();
 
@@ -136,7 +140,7 @@ public class UserProfile extends TestInitiation {
 
 //        Enter phone number, passport, gender
         EditProfileScreen.txt_EmailOrPhoneNumber.sendKeys(username);
-        EditProfileScreen.txt_PassportNumber.sendKeys("76234816");
+        EditProfileScreen.txt_PassportNumber.sendKeys(passPort);
         EditProfileScreen.btn_Male.click();
 
 //        Tap Back button
@@ -146,12 +150,27 @@ public class UserProfile extends TestInitiation {
         UserProfileScreen.btn_EditProfile.click();
 
 //        CheckPoint: phone number, passport, gender should empty
-        softAssert1.assertEquals(EditProfileScreen.txt_EmailOrPhoneNumber.getText(), " ");
-        softAssert1.assertEquals(EditProfileScreen.txt_PassportNumber.getText(), " ");
+        softAssert1.assertEquals(EditProfileScreen.txt_EmailOrPhoneNumber.getText(), "");
+        softAssert1.assertEquals(EditProfileScreen.txt_PassportNumber.getText(), "");
         softAssert1.assertEquals(EditProfileScreen.btn_Male.getAttribute("checked"), "false");
 
+//        Edit profile again
+        EditProfileScreen.txt_PassportNumber.sendKeys(passPort);
+        EditProfileScreen.btn_Male.click();
 
+//        Tap Proceed button
+        EditProfileScreen.btn_Proceed.click();
 
+//        Go back Edit Profile Screen
+        UserProfileScreen.btn_EditProfile.click();
 
+//        CheckPoint: new profile should be saved
+        softAssert1.assertEquals(EditProfileScreen.txt_PassportNumber.getText(),passPort);
+        androidDriver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(new UiSelector().className(\"android.widget.RadioButton\"));");
+        softAssert1.assertEquals(EditProfileScreen.btn_Male.getAttribute("checked"), "true");
+
+//        Tap Back button
+        EditProfileScreen.btn_Back.click();
+        softAssert1.assertAll();
     }
 }

@@ -10,14 +10,12 @@ public class SignUpLocators{
     private AndroidDriver androidDriver;
 
     private LogInLocators LoginScreen;
-    private EnterPinLocators SetPINScreen;
     private EnterReferralCodeLocators EnterReferralCodeScreen;
     private VerifyEmailOrPhoneNumberLocators VerifyEmailOrPhoneNumberScreen;
 
     public SignUpLocators(AndroidDriver androidDriver){
         this.androidDriver = androidDriver;
         LoginScreen = AndroidPageFactory.initElements(androidDriver, LogInLocators.class);
-        SetPINScreen = AndroidPageFactory.initElements(androidDriver, EnterPinLocators.class);
         EnterReferralCodeScreen = AndroidPageFactory.initElements(androidDriver, EnterReferralCodeLocators.class);
         VerifyEmailOrPhoneNumberScreen = AndroidPageFactory.initElements(androidDriver, VerifyEmailOrPhoneNumberLocators.class);
     }
